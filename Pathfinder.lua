@@ -2,7 +2,7 @@
 
 local pathfinder = {}
 
-local AStar = require(script.AStar)
+local AStar = loadstring(game:HttpGet("https://raw.githubusercontent.com/liminalsq/HOSTERS-FR-ASTAR/refs/heads/main/AStar.lua"))()
 
 function pathfinder:FindPath(start, goal, npc, postProcess)
 	local raycastParams = RaycastParams.new()
