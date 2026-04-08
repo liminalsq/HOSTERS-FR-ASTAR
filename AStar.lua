@@ -11,7 +11,7 @@ local gridSize = 2
 local maxIterations = 10000
 local yieldInterval = 200
 
-local HEURISTIC_WEIGHT = 2
+local HEURISTIC_WEIGHT = 3
 
 local function CreateNode()
 	return {
@@ -271,6 +271,10 @@ function astar:ComputePath(start, goal, raycastParams)
 		if current.HCost < minHCost then
 			minHCost = current.HCost
 			closestNode = current
+		end
+		
+		if iterations % yieldInterval == 0 then
+			task.wait()
 		end
 
 		if iterations > maxIterations then 
