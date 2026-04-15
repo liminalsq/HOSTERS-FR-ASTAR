@@ -240,9 +240,11 @@ end
 
 --create notes to urself
 
-function astar:ComputePath(start, goal, raycastParams)
+function astar:ComputePath(start, goal, raycastParams, miterations)
 	start = snap(start)
 	goal = snap(goal)
+	
+	miterations = miterations or maxIterations
 
 	local openHeap = Heap.new()
 	local openLookup = {} 
